@@ -4,13 +4,14 @@ import expressFileUpload from 'express-fileupload'
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
+//public static
+app.use(express.static('public'))
 
 //Middlewares
 app.use(expressFileUpload({
-    limits: { fileSize: 1000000 },
+    limits: { fileSize: 8000000 },
     abortOnLimit: true,
-    responseOnLimit: 'El archivo que seleccionaste es demasiado grande',
+    responseOnLimit: 'El peso de la cancion que intentas subir supera el limite permitido',
 }))
 
 //Routes
